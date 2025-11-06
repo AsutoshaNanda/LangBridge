@@ -16,21 +16,23 @@
 </div>
 
 ---
+<h2 align="center">📋 Table of Contents</h2>
 
-## 📋 Table of Contents
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#requirements">Requirements</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#configuration">Configuration</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#api-models">API Models</a> •
+  <a href="#performance-benchmarks">Performance Benchmarks</a> •
+  <a href="#architecture">Architecture</a> •
+  <a href="#examples">Examples</a> •
+  <a href="#troubleshooting">Troubleshooting</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#license">License</a>
+</p>
 
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [API Models](#api-models)
-- [Performance Benchmarks](#performance-benchmarks)
-- [Architecture](#architecture)
-- [Examples](#examples)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
