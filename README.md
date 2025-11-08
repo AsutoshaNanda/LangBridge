@@ -19,22 +19,30 @@
 
 ---
 
-## 📋 Table of Contents
+<div align="center">
+<h2>📋 Table of Contents</h2>
+<table>
+  <tr>
+    <td><a href="#features">✨ Features</a></td>
+    <td><a href="#supported-models">🤖 Supported Models</a></td>
+    <td><a href="#requirements">📦 Requirements</a></td>
+    <td><a href="#installation">🔧 Installation</a></td>
+  </tr>
+  <tr>
+    <td><a href="#configuration">⚙️ Configuration</a></td>
+    <td><a href="#usage">🎮 Usage</a></td>
+    <td><a href="#performance-benchmarks">📊 Performance</a></td>
+    <td><a href="#architecture">🏗️ Architecture</a></td>
+  </tr>
+  <tr>
+    <td><a href="#examples">💡 Examples</a></td>
+    <td><a href="#troubleshooting">🐛 Troubleshooting</a></td>
+    <td><a href="#contributing">🤝 Contributing</a></td>
+    <td><a href="#license">📄 License</a></td>
+  </tr>
+</table>
+</div>
 
-- [Features](#features)
-- [Supported Models](#supported-models)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Performance Benchmarks](#performance-benchmarks)
-- [Architecture](#architecture)
-- [Examples](#examples)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
-
----
 
 ## ✨ Features
 
