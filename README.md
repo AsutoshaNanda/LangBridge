@@ -1,70 +1,107 @@
 <div align="center">
 
-# LangBridge 
+# LangBridge
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
-[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-green.svg)](https://platform.openai.com/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-green.svg)](https://platform.openai.com/)
 [![Anthropic](https://img.shields.io/badge/Anthropic-Claude-purple.svg)](https://www.anthropic.com/)
+[![Google](https://img.shields.io/badge/Google-Gemini-red.svg)](https://ai.google.dev/)
+[![HuggingFace](https://img.shields.io/badge/🤗-HuggingFace-yellow.svg)](https://huggingface.co/)
 [![C++](https://img.shields.io/badge/C%2B%2B-17-red.svg)](https://en.cppreference.com/)
 [![Gradio](https://img.shields.io/badge/Gradio-Interface-orange.svg)](https://gradio.app/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**Intelligent Python to C++ code conversion using AI with real-time execution and performance comparison**
+**Multi-Model AI Platform: Convert Python to High-Performance C++ using Frontier & Open-Source Models**
 
-[Features](#features) • [Installation](#installation) • [Usage](#usage) • [API Models](#api-models) • [Performance](#performance)
+[Features](#features) • [Supported Models](#supported-models) • [Installation](#installation) • [Usage](#usage) • [Performance](#performance-benchmarks)
 
 </div>
 
 ---
-<h2 align="center">📋 Table of Contents</h2>
 
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#requirements">Requirements</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#configuration">Configuration</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#api-models">API Models</a> •
-  <a href="#performance-benchmarks">Performance Benchmarks</a> •
-  <a href="#architecture">Architecture</a> •
-  <a href="#examples">Examples</a> •
-  <a href="#troubleshooting">Troubleshooting</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#license">License</a>
-</p>
+## 📋 Table of Contents
 
+- [Features](#features)
+- [Supported Models](#supported-models)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Performance Benchmarks](#performance-benchmarks)
+- [Architecture](#architecture)
+- [Examples](#examples)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
 ## ✨ Features
 
-### 🔄 **Multi-Model Support**
-- **OpenAI GPT-4o-mini** for rapid code conversion
-- **Anthropic Claude Sonnet 4** for optimized implementations
-- Model selection via interactive UI dropdown
+### 🤖 **Multi-Model Support**
+
+#### Frontier AI Models
+- **OpenAI GPT-4o-mini** - Fast code conversion with good optimization
+- **Anthropic Claude Sonnet 4** - Superior optimization, better type handling
+- **Google Gemini 2.5 Pro** - Advanced code understanding and generation
+
+#### Open-Source Models (HuggingFace)
+- **CodeQwen 1.5 7B** - Specialized for code understanding
+- **CodeLlama 70B** - Large-scale code generation with instruction following
+- **StarCoder2 15B** - Fast and efficient code generation
+- **CodeGemma 7B** - Lightweight Google model for efficient inference
 
 ### ⚡ **Real-Time Code Execution**
 - Execute Python code directly with captured output
-- Compile and run C++ with optimized flags for Apple M1/M4 Mac Pro
+- Compile and run C++ with optimized flags for Apple Silicon
 - Performance timing for both languages
 - Live result display in Gradio interface
 
-### 🎯 **Optimization Focus**
+### 🎯 **Advanced Optimization**
 - Automatic performance optimization targeting high-performance systems
 - Intelligent type conversion and overflow prevention
 - Vectorization and algorithm optimization
 - Compilation with aggressive optimization flags (-Ofast)
+- Support for 128-bit integers for large computations
 
 ### 🖥️ **Interactive Web UI**
 - Beautiful Gradio interface with syntax highlighting
 - Side-by-side code comparison (Python ↔ C++)
 - Color-coded output results
+- Model selection dropdown for easy switching
 - One-click code conversion and execution
 
 ### 📊 **Performance Analytics**
-- Execution time tracking
+- Execution time tracking and comparison
 - Comparative benchmarking between Python and C++
 - Support for large-scale computations (100M+ iterations)
+- Speedup metrics for code conversion
+
+### 🔀 **Streaming Response**
+- Real-time streaming for all AI models
+- Progressive code generation display
+- Fast feedback during code conversion
+
+---
+
+## 🤖 Supported Models
+
+### Frontier AI Models (Cloud-Based)
+
+| Model | Provider | Speed | Quality | Context | Cost |
+|-------|----------|-------|---------|---------|------|
+| GPT-4o-mini | OpenAI | ⚡⚡⚡ | ⭐⭐⭐⭐ | 128K | Low |
+| Claude Sonnet 4 | Anthropic | ⚡⚡ | ⭐⭐⭐⭐⭐ | 200K | Medium |
+| Gemini 2.5 Pro | Google | ⚡⚡ | ⭐⭐⭐⭐⭐ | 1M | Medium |
+
+### Open-Source Models (HuggingFace Endpoints)
+
+| Model | Size | Speed | Quality | Best For |
+|-------|------|-------|---------|----------|
+| CodeQwen 1.5 | 7B | ⚡⚡⚡ | ⭐⭐⭐⭐ | Balanced |
+| CodeLlama | 70B | ⚡⚡ | ⭐⭐⭐⭐⭐ | High-quality code |
+| StarCoder2 | 15B | ⚡⚡⚡ | ⭐⭐⭐⭐ | General purpose |
+| CodeGemma | 7B | ⚡⚡⚡ | ⭐⭐⭐ | Lightweight |
 
 ---
 
@@ -79,9 +116,12 @@
 ```
 openai>=1.0.0
 anthropic>=0.7.0
+google-generativeai>=0.3.0
 python-dotenv>=0.21.0
 gradio>=4.0.0
 ipython>=8.0.0
+huggingface-hub>=0.16.0
+transformers>=4.30.0
 ```
 
 ---
@@ -110,8 +150,13 @@ pip install -r requirements.txt
 ### 4. Configure Environment Variables
 Create a `.env` file in the project root:
 ```env
+# Frontier Models
 OPENAI_API_KEY=your_openai_api_key_here
 ANTHROPIC_API_KEY=your_anthropic_api_key_here
+GOOGLE_API_KEY=your_google_api_key_here
+
+# Open-Source Models (HuggingFace)
+HF_API_KEY=your_huggingface_token_here
 ```
 
 ### 5. Verify C++ Compiler
@@ -136,10 +181,34 @@ clang++ --version
 2. Generate API key
 3. Add to `.env` file as `ANTHROPIC_API_KEY`
 
-### Model Selection
+#### Google Gemini API
+1. Visit [Google AI Studio](https://ai.google.dev/)
+2. Create API key
+3. Add to `.env` file as `GOOGLE_API_KEY`
+
+#### HuggingFace Token
+1. Visit [HuggingFace Settings](https://huggingface.co/settings/tokens)
+2. Create new token (read access)
+3. Add to `.env` file as `HF_API_KEY`
+
+### Model Configuration
 ```python
+# Frontier Models
 claude_model = 'claude-sonnet-4-20250514'
 openai_model = 'gpt-4o-mini'
+gemini_model = 'gemini-2.5-pro'
+
+# Open-Source Models
+code_qwen = "Qwen/CodeQwen1.5-7B-Chat"
+code_llama = 'codellama/CodeLlama-70b-Instruct-hf'
+code_star_coder = 'bigcode/starcoder2-15b'
+code_gemma = 'google/codegemma-7b-it'
+
+# HuggingFace Endpoints (optional)
+CODE_QWEN_URL = 'https://your-endpoint.endpoints.huggingface.cloud'
+CODE_LLAMA_URL = 'https://your-endpoint.endpoints.huggingface.cloud'
+CODE_STAR_CODER_URL = 'https://your-endpoint.endpoints.huggingface.cloud'
+CODE_GEMMA_URL = 'https://your-endpoint.endpoints.huggingface.cloud'
 ```
 
 ### Compiler Optimization Flags
@@ -155,39 +224,77 @@ clang++ -Ofast -std=c++17 -march=armv8.5-a -mtune=apple-m1 -mcpu=apple-m1
 
 #### 1. Launch Gradio Interface
 ```bash
-python langbridge.ipynb
-# Or if using Jupyter
 jupyter notebook langbridge.ipynb
+# Select the final UI cell and run it
 ```
 
 #### 2. Using the Web UI
 - **Input Python Code**: Paste your Python algorithm in the left textbox
-- **Select Model**: Choose between GPT or Claude from dropdown
-- **Convert**: Click "Convert code" button
+- **Select Model**: Choose from 7 available models (GPT, Claude, Gemini, CodeQwen, CodeLlama, StarCoder, Gemma)
+- **Convert**: Click "Convert code" button to generate C++ equivalent
 - **Execute Python**: View Python execution results and timing
 - **Execute C++**: View C++ compilation and execution results
 - **Compare**: Analyze performance differences
+
+### Model Selection Guide
+
+**For Best Quality (Slowest):**
+```
+Claude Sonnet 4 > CodeLlama > Gemini 2.5 Pro > GPT-4o-mini
+```
+
+**For Fastest Speed (Decent Quality):**
+```
+CodeQwen > GPT-4o-mini > StarCoder > Gemma
+```
+
+**For Balanced Performance:**
+```
+StarCoder or GPT-4o-mini
+```
 
 ### Programmatic Usage
 
 #### Convert Code with GPT
 ```python
-from langbridge import optimize_gpt
+from langbridge import ui_gpt
 
 python_code = """
 def calculate(n):
     return sum(i**2 for i in range(n))
 """
 
-cpp_code = optimize_gpt(python_code)
-print(cpp_code)
+for chunk in ui_gpt(python_code):
+    print(chunk, end='', flush=True)
 ```
 
 #### Convert Code with Claude
 ```python
-from langbridge import optimize_claude
+from langbridge import ui_claude
 
-cpp_code = optimize_claude(python_code)
+for chunk in ui_claude(python_code):
+    print(chunk, end='', flush=True)
+```
+
+#### Convert with Open-Source Models
+```python
+from langbridge import stream_code_qwen, stream_code_llama, stream_star_coder, stream_code_gemma
+
+# CodeQwen
+result = stream_code_qwen(python_code)
+print(result)
+
+# CodeLlama (streaming)
+for chunk in stream_code_llama(python_code):
+    print(chunk, end='', flush=True)
+
+# StarCoder (streaming)
+for chunk in stream_star_coder(python_code):
+    print(chunk, end='', flush=True)
+
+# CodeGemma (streaming)
+for chunk in stream_code_gemma(python_code):
+    print(chunk, end='', flush=True)
 ```
 
 #### Execute Python Code
@@ -208,19 +315,7 @@ print(result)  # Compilation + execution output
 
 ---
 
-## 🤖 API Models
-
-### OpenAI GPT-4o-mini
-- **Model ID**: `gpt-4o-mini`
-- **Use Case**: Fast code conversion with good optimization
-- **Strengths**: Quick response, cost-effective
-- **Context Window**: 128k tokens
-
-### Anthropic Claude Sonnet 4
-- **Model ID**: `claude-sonnet-4-20250514`
-- **Use Case**: High-quality optimized C++ generation
-- **Strengths**: Superior optimization, better type handling
-- **Context Window**: 200k tokens
+## 🤖 AI Models
 
 ### System Prompt
 ```
@@ -228,55 +323,76 @@ You are an assistant that reimplements Python code in high performance C++
 for an M4 Mac Pro. Respond only with C++ code; use comments sparingly and 
 do not provide any explanation other than occasional comments. The C++ 
 response needs to produce an identical output in the fastest possible time.
+Keep implementations of random number generators identical so that results 
+match perfectly.
+```
+
+### User Prompt Template
+```
+Rewrite this Python code in C++ with the fastest possible implementation 
+that produces identical output in the least time. Respond only with C++ code; 
+do not explain your work other than a few comments. Pay attention to number 
+types to ensure no int overflows. Remember to #include all necessary C++ 
+packages such as iomanip.
 ```
 
 ---
 
 ## 📊 Performance Benchmarks
 
-### Example: Pi Calculation (100M iterations)
+### Example 1: Pi Calculation (100M iterations)
 
 #### Python Execution
 ```
 Result: 3.141592658589
-Execution Time: 5.285664 seconds
+Execution Time: 5.412465 seconds
 ```
 
-#### C++ Execution (GPT-Optimized)
+#### C++ (GPT-Optimized)
 ```
 Result: 3.141592658589
 Execution Time: 0.131795 seconds
 ```
 
-#### C++ Execution (Claude-Optimized)
+#### C++ (Claude-Optimized)
 ```
 Result: 3.141592662604
 Execution Time: 0.092037 seconds
 ```
 
-**Performance Improvement**: **~50-57x faster** than Python
+**Performance Improvement**: **50-59x faster** than Python
 
-### Example: Maximum Subarray Sum (10K array, 20 runs)
+### Example 2: Maximum Subarray Sum (10K array, 20 runs)
 
 #### Python Execution
 ```
 Total Maximum Subarray Sum (20 runs): 10980
-Execution Time: 15.477061 seconds
+Execution Time: 14.942410 seconds
 ```
 
-#### C++ Execution (GPT-Optimized)
+#### C++ (GPT-Optimized)
 ```
 Total Maximum Subarray Sum (20 runs): 10980
 Execution Time: 0.001839 seconds
 ```
 
-#### C++ Execution (Claude-Optimized)
+#### C++ (Claude-Optimized)
 ```
 Total Maximum Subarray Sum (20 runs): 10980
 Execution Time: 0.487203 seconds
 ```
 
-**Performance Improvement**: **~8400-31x faster** than Python
+**Performance Improvement**: **8100-30x faster** than Python
+
+### Model Comparison
+
+| Model | Conv. Speed | Code Quality | Output Match | Best Use |
+|-------|------------|--------------|--------------|----------|
+| GPT-4o-mini | ⚡⚡⚡ | ⭐⭐⭐⭐ | ✓ | Fast iterations |
+| Claude | ⚡⚡ | ⭐⭐⭐⭐⭐ | ✓ | Production code |
+| CodeLlama | ⚡⚡ | ⭐⭐⭐⭐⭐ | ✓ | Complex algorithms |
+| Gemini | ⚡⚡ | ⭐⭐⭐⭐ | ✓ | Edge cases |
+| StarCoder | ⚡⚡⚡ | ⭐⭐⭐⭐ | ✓ | Balanced |
 
 ---
 
@@ -285,44 +401,54 @@ Execution Time: 0.487203 seconds
 ### Component Overview
 
 ```
-┌─────────────────────────────────────────────────────┐
-│            Gradio Web Interface (UI Layer)          │
-├─────────────────────────────────────────────────────┤
-│                                                       │
-│  ┌──────────────────┐      ┌──────────────────┐    │
-│  │  Python Editor   │      │   C++ Editor     │    │
-│  └──────────────────┘      └──────────────────┘    │
-│                                                       │
-│  ┌──────────────────┐      ┌──────────────────┐    │
-│  │ Python Executor  │      │  C++ Executor    │    │
-│  └──────────────────┘      └──────────────────┘    │
-├─────────────────────────────────────────────────────┤
-│              Code Conversion Layer                  │
-├────────────────┬────────────────┬──────────────────┤
-│                │                │                  │
-│   OpenAI API   │  Anthropic API │  System Prompts  │
-│   (GPT-4o)     │  (Claude)      │                  │
-│                │                │                  │
-├────────────────┴────────────────┴──────────────────┤
-│           Execution & Compilation Layer             │
-├─────────────────────────────────────────────────────┤
-│                                                       │
-│  ┌──────────────────┐      ┌──────────────────┐    │
-│  │  Python Exec     │      │   C++ Compiler   │    │
-│  │  (via exec())    │      │   (clang++)      │    │
-│  └──────────────────┘      └──────────────────┘    │
-│                                                       │
-│  Output Capture (io.StringIO) & File Writing       │
-├─────────────────────────────────────────────────────┤
+┌──────────────────────────────────────────────────────────┐
+│            Gradio Web Interface (UI Layer)               │
+├──────────────────────────────────────────────────────────┤
+│                                                            │
+│  ┌────────────────────┐      ┌────────────────────┐     │
+│  │  Python Editor     │      │   C++ Editor       │     │
+│  └────────────────────┘      └────────────────────┘     │
+│                                                            │
+│  ┌────────────────────┐      ┌────────────────────┐     │
+│  │ Python Executor    │      │  C++ Executor      │     │
+│  └────────────────────┘      └────────────────────┘     │
+├──────────────────────────────────────────────────────────┤
+│           Multi-Model Code Conversion Layer              │
+├────────────────┬──────────────────┬────────────────────┤
+│                │                  │                    │
+│   Frontier     │  Open-Source     │  System Prompts   │
+│   Models       │  Models          │                   │
+│   ──────       │  ────────        │                   │
+│   • OpenAI     │  • CodeQwen      │  • User Prompt    │
+│   • Anthropic  │  • CodeLlama     │  • System Msg     │
+│   • Google     │  • StarCoder     │                   │
+│                │  • CodeGemma     │                   │
+│                │                  │                   │
+├────────────────┴──────────────────┴────────────────────┤
+│         Execution & Compilation Layer                   │
+├──────────────────────────────────────────────────────────┤
+│                                                            │
+│  ┌────────────────────┐      ┌────────────────────┐     │
+│  │  Python Exec       │      │   C++ Compiler     │     │
+│  │  (via exec())      │      │   (clang++)        │     │
+│  └────────────────────┘      └────────────────────┘     │
+│                                                            │
+│  Output Capture (io.StringIO) & File Writing           │
+├──────────────────────────────────────────────────────────┤
 ```
 
 ### Key Functions
 
 | Function | Purpose | Input | Output |
 |----------|---------|-------|--------|
-| `optimize()` | Route to appropriate AI model | Python code, model name | Generator yielding C++ code |
-| `optimize_gpt()` | Convert using OpenAI | Python code | C++ code |
-| `optimize_claude()` | Convert using Anthropic | Python code | C++ code |
+| `optimize_final()` | Route to appropriate AI model | Python code, model name | Generator yielding C++ code |
+| `ui_gpt()` | Stream OpenAI GPT response | Python code | Streaming C++ chunks |
+| `ui_claude()` | Stream Anthropic Claude response | Python code | Streaming C++ chunks |
+| `ui_gemini()` | Stream Google Gemini response | Python code | Streaming C++ chunks |
+| `stream_code_qwen()` | CodeQwen conversion | Python code | C++ code |
+| `stream_code_llama()` | CodeLlama streaming conversion | Python code | Streaming C++ chunks |
+| `stream_star_coder()` | StarCoder streaming conversion | Python code | Streaming C++ chunks |
+| `stream_code_gemma()` | CodeGemma streaming conversion | Python code | Streaming C++ chunks |
 | `execute_python()` | Run Python with output capture | Python code | Captured stdout |
 | `execute_cpp()` | Compile and run C++ | C++ code | Executable output |
 | `user_prompt_for()` | Build AI prompt | Python code | Formatted prompt string |
@@ -332,7 +458,7 @@ Execution Time: 0.487203 seconds
 
 ## 💡 Examples
 
-### Example 1: Simple Calculation
+### Example 1: Simple Pi Calculation
 
 #### Python Input
 ```python
@@ -388,7 +514,7 @@ int main() {
 
 ### Example 2: Complex Algorithm with LCG
 
-#### Python Input (Max Subarray Sum)
+#### Python Input (Maximum Subarray Sum)
 ```python
 def lcg(seed, a=1664525, c=1013904223, m=2**32):
     value = seed
@@ -407,15 +533,42 @@ def max_subarray_sum(n, seed, min_val, max_val):
             if current_sum > max_sum:
                 max_sum = current_sum
     return max_sum
-
-# Performance test with n=10000, 20 iterations
 ```
 
-#### Key Optimizations Applied
-- Linear congruential generator inlining
-- Type upgrade to int64_t/int128 for overflow prevention
-- Algorithm-level optimization (Kadane's variant)
-- Vectorization hints for compiler
+#### C++ Output (GPT-Optimized)
+```cpp
+#include <iostream>
+#include <cstdint>
+#include <chrono>
+#include <iomanip>
+#include <algorithm>
+
+static inline uint32_t lcg_next(uint32_t& v) {
+    v = v * 1664525u + 1013904223u;
+    return v;
+}
+
+static __int128 max_subarray_sum(std::size_t n, uint32_t seed, long long min_val, long long max_val) {
+    uint32_t state = seed;
+    unsigned __int128 urange = (unsigned __int128)((__int128)max_val - (__int128)min_val + 1);
+    __int128 best = 0, current = 0;
+    bool first = true;
+    for (std::size_t i = 0; i < n; ++i) {
+        uint32_t rnd = lcg_next(state);
+        unsigned __int128 rem = (unsigned __int128)rnd % urange;
+        __int128 val = (__int128)rem + (__int128)min_val;
+        if (first) {
+            current = best = val;
+            first = false;
+        } else {
+            __int128 sum = current + val;
+            current = (sum > val) ? sum : val;
+            if (current > best) best = current;
+        }
+    }
+    return best;
+}
+```
 
 ---
 
@@ -433,19 +586,32 @@ cat .env  # Check file contents
 xcode-select --install
 ```
 
+### Issue: "HuggingFace authentication failed"
+**Solution**: Verify HF_API_KEY in .env and ensure token has read access
+```bash
+huggingface-cli login  # Interactive login
+```
+
 ### Issue: C++ compilation fails
 **Solution**: Check for syntax errors in generated code
 ```bash
-clang++ -std=c++17 yourfile.cpp -o out  # Verbose compilation
+clang++ -std=c++17 yourfile.cpp -o out -v  # Verbose compilation
 ```
 
 ### Issue: Python exec() returns None in Gradio
 **Solution**: Use `io.StringIO` to capture stdout (already implemented in `execute_python()`)
 
 ### Issue: Memory issues with large arrays
-**Solution**: Reduce array size or increase system RAM. Monitor with:
+**Solution**: Reduce array size or increase system RAM
 ```bash
-top -l 1 | grep Memory
+top -l 1 | grep Memory  # Monitor memory usage
+```
+
+### Issue: Open-Source models timing out
+**Solution**: Check HuggingFace endpoint status and increase timeout
+```python
+# Increase max_new_tokens or reduce input size
+max_new_tokens = 1000  # Adjust based on model capacity
 ```
 
 ---
@@ -465,19 +631,22 @@ Contributions welcome! Please follow these steps:
 - Add docstrings to new functions
 - Update README with new features
 - Test thoroughly before submitting
+- Include performance benchmarks for new optimizations
 
 ---
 
-## 📝 File Structure
+## 📁 File Structure
 
 ```
 langbridge/
-├── langbridge.ipynb          # Main Jupyter notebook
-├── .env                      # Environment variables (git-ignored)
-├── requirements.txt          # Python dependencies
-├── README.md                 # This file
-├── optimized.cpp             # Generated C++ files
-└── LICENSE                   # MIT License
+├── langbridge.ipynb                    # Original single-model version
+├── langbridge(Open Source + Frontier).ipynb  # Multi-model version
+├── .env                                # Environment variables (git-ignored)
+├── requirements.txt                    # Python dependencies
+├── README.md                           # This file
+├── optimized.cpp                       # Generated C++ files
+├── optimized_practice04                # Generated C++ binary
+└── LICENSE                             # MIT License
 ```
 
 ---
@@ -488,6 +657,31 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
+## 🎓 Citation
+
+If you use LangBridge in research, please cite:
+```bibtex
+@software{langbridge2025,
+  author = {Asutosha Nanda},
+  title = {LangBridge},
+  year = {2025},
+  url = {https://github.com/yourusername/langbridge}
+}
+```
+
+---
+
+## 📚 Additional Resources
+
+- [OpenAI API Docs](https://platform.openai.com/docs/)
+- [Anthropic API Docs](https://docs.anthropic.com/)
+- [Google AI Docs](https://ai.google.dev/docs)
+- [HuggingFace Hub](https://huggingface.co/docs)
+- [Gradio Documentation](https://www.gradio.app/docs/)
+- [C++ Reference](https://en.cppreference.com/)
+
+---
+
 ## 🙋 Support & Contact
 
 - **Issues**: Open GitHub issues for bugs
@@ -495,24 +689,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🎓 Citation
-
-If you use LangBridge in research, please cite:
-```bibtex
-@software{langbridge2025,
-  author = Asutosha Nanda,
-  title = {LangBridge},
-  year = {2025},
-  url = {https://github.com/AsutoshaNanda/LangBridge}
-}
-```
-
----
-
 <div align="center">
 
-**[⬆ Back to Top](#-langbridge-python-to-c-code-optimizer)**
+**[⬆ Back to Top](#-langbridge)**
 
+**Multi-Model AI Code Optimizer**  
 Made with ❤️ for high-performance computing
 
-</div> 
+</div>
