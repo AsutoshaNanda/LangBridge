@@ -13,7 +13,7 @@
 
 **Multi-Model AI Platform: Convert Python to High-Performance C++ using Frontier & Open-Source Models**
 
-[Features](#features) • [Supported Models](#supported-models) • [Installation](#installation) • [Usage](#usage) • [Performance](#performance-benchmarks)
+
 
 </div>
 
