@@ -13,27 +13,33 @@
 
 **Multi-Model AI Platform: Convert Python to High-Performance C++ using Frontier & Open-Source Models**
 
-
-
 </div>
 
 ---
 
-<h2 align="center">📋 Table of Contents</h2>
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#supported-models">Supported Models</a> •
-  <a href="#requirements">Requirements</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#configuration">Configuration</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#performance-benchmarks">Performance Benchmarks</a> •
-  <a href="#architecture">Architecture</a> •
-  <a href="#examples">Examples</a> •
-  <a href="#troubleshooting">Troubleshooting</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#license">License</a>
-</p>
+<div align="center">
+<h2>📋 Table of Contents</h2>
+<table>
+  <tr>
+    <td><a href="#features">✨ Features</a></td>
+    <td><a href="#supported-models">🤖 Supported Models</a></td>
+    <td><a href="#requirements">📦 Requirements</a></td>
+    <td><a href="#installation">🔧 Installation</a></td>
+  </tr>
+  <tr>
+    <td><a href="#configuration">⚙️ Configuration</a></td>
+    <td><a href="#usage">🎮 Usage</a></td>
+    <td><a href="#performance-benchmarks">📊 Performance</a></td>
+    <td><a href="#architecture">🏗️ Architecture</a></td>
+  </tr>
+  <tr>
+    <td><a href="#examples">💡 Examples</a></td>
+    <td><a href="#troubleshooting">🐛 Troubleshooting</a></td>
+    <td><a href="#contributing">🤝 Contributing</a></td>
+    <td><a href="#license">📄 License</a></td>
+  </tr>
+</table>
+</div>
 
 ---
 
